@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap" rel="stylesheet">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<main class="card">
+		<form action="input" id='input-form' class="inputs-form">
+			<div class="inputs">
+				<div class="val">
+					<label for="day">day</label>
+					<input id='input-day' placeholder='DD' type="number">
+					<span>Must be a valid date</span>
+				</div>
+				<div class="val">
+					<label for="month">month</label>
+					<input id='input-month' placeholder='MM' type="number">
+					<span>Must be a valid date</span>
+				</div>
+				<div class="val">
+					<label for="year">year</label>
+					<input id='input-year' placeholder='YYYY' type="number">
+					<span>Must be in the past</span>
+				</div>
+			</div>
+			<button class="form-send">
+				<svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
+			</button>
+		</form>
+		<div class="output">
+			<h2 class="output-line"><span id='output-year' class='output-number'>--</span> years</h2>
+			<h2 class="output-line"><span id='output-month' class='output-number'>--</span> months</h2>
+			<h2 class="output-line"><span id='output-day' class='output-number'>--</span> days</h2>
+		</div>
+	</main>
+</body>
+<script src='index.js'></script>
+</html>

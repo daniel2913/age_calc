@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: hsl(0, 0%, 86%);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.card {
+  height: 30rem;
+  width: clamp(20rem, 80%, 35rem);
+  align-self: center;
+  padding: 3rem 2rem;
+  border-radius: 2rem 2rem 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  background: hsl(0, 0%, 100%);
+  gap: 3rem;
+}
+
+.inputs-form {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid hsl(0, 1%, 44%);
+}
+
+.inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.val {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 20%;
+}
+
+.val label {
+  font-size: 0.75em;
+  color: hsl(0, 1%, 44%);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.val input {
+  font-size: inherit;
+  font-family: "Poppins", sans-serif;
+  width: clamp(6em, 40%, 10rem);
+  border-radius: 0.5rem;
+  border: 2px solid hsl(0, 1%, 44%);
+  padding: 0.7rem 1rem;
+  appearance: textfield;
+  align-self: center;
+}
+
+.val input:focus {
+  outline: none;
+  border: 2px solid hsl(259, 100%, 65%);
+}
+
+.val span {
+  color: hsl(0, 100%, 67%);
+  font-size: 0.5rem;
+  visibility: hidden;
+  text-align: center;
+}
+
+.form-send {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-weight: 800;
+  background: hsl(259, 100%, 65%);
+  justify-self: center;
+  align-self: center;
+  border-radius: 50vw;
+  border: none;
+  transform: translateY(1.75rem);
+  cursor: pointer;
+}
+
+.form-send svg {
+  height: 50%;
+}
+
+.form-send:hover, .form-send:focus {
+  outline: none;
+  background: hsl(0, 0%, 8%);
+  transition: background 300ms;
+}
+
+.output {
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.output-number {
+  color: hsl(259, 100%, 65%);
+}
+
+@media (min-width: 1140px) {
+  body {
+    background: teal;
+  }
+  .inputs-form {
+    flex-direction: row;
+    padding-bottom: 1rem;
+    justify-content: space-between;
+  }
+  .inputs {
+    flex: 0 1 70%;
+  }
+  .form-send {
+    justify-self: flex-end;
+    transform: translateY(3.85rem);
+  }
+}
+.val .error {
+  border: 1px solid hsl(0, 100%, 67%);
+}
+
+.val .error ~ span {
+  visibility: visible;
+}
+
+/*# sourceMappingURL=index.css.map */
