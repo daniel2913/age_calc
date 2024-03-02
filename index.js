@@ -18,26 +18,26 @@ form.addEventListener('submit',(e) => {
 	iyear.className = ""
 	imonth.className = ""
 	iday.className = ""
-	let flag = true
+	let flag = false
 	if (!iyear.value){
 		iyear.focus()
 		iyear.className = "error"
-		flag=false
+		flag=true
 	}
 
 	if (!imonth.value){
 		imonth.focus()
 		imonth.className = "error"
-		flag=false
+		flag=true
 	}
 
 	if (!iday.value){
 		iday.focus()
 		iday.className = "error"
-		flag=false
+		flag=true
 	}
 	
-	if (!flag) return
+	if (flag) return
 
 	newDate = new Date(
 		+iyear.value.padStart(4,'0'),
@@ -51,12 +51,12 @@ form.addEventListener('submit',(e) => {
 	animate(time.getFullYear()-1970,time.getMonth(),time.getDate()-1)
 })
 
-const animate = async function(year,month,day){
+async function animate(year,month,day){
 	const res = 10
 	const time = 500
-	let dy = year / res
-	let dm = month / res
-	let dd = day / res
+	const dy = year / res
+	const dm = month / res
+	const dd = day / res
 	for (let i=0;i<=res;i++){
 		await new Promise((resolve)=>{setTimeout(()=>resolve(true),time/res)})
 		oyear.innerHTML = (0 + dy*i)^0
@@ -65,28 +65,28 @@ const animate = async function(year,month,day){
 	}
 }
 
-const getDays = function(){
+function getDays(){
 	let days = DAYS[Math.max(Math.min(+imonth.value-1,11),0)]
-	if (days==28){
-		if(+iyear.value%4==0 && (+iyear.value%100!=0 || +iyear.value%400==0)){
+	if (days===28){
+		if(+iyear.value%4===0 && (+iyear.value%100!==0 || +iyear.value%400===0)){
 			days++
 		}
 	}
 	return days
 }
 
-const getDaysAdv = function(year,month){
+function getDaysAdv(year,month){
 	let days = DAYS[Math.max(Math.min(month-1,11),0)]
-	if (days==28){
-		if(year%4==0 && (year%100!=0 || year%400==0)){
+	if (days===28){
+		if(year%4===0 && (year%100!==0 || year%400===0)){
 			days++
 		}
 	}
 	return days
 }
 
-const validateYear = function(e){
-	if (iyear.value=="") return
+function validateYear(e){
+	if (iyear.value==="") return
 	if (+iyear.value > +today.getFullYear()){
 		iyear.value=today.getFullYear()
 	}
@@ -95,8 +95,8 @@ const validateYear = function(e){
 	}
 }
 
-const validateMonth = function(e){
-	if (imonth.value == "") return
+function validateMonth(e){
+	if (imonth.value === "") return
 	if (+iyear.value >= +today.getFullYear()){
 		if (+imonth.value > +today.getMonth()+1){
 			imonth.value=today.getMonth()+1
@@ -122,8 +122,8 @@ const validateMonth = function(e){
 	}
 }
 
-const validateDay = function(e){
-	if (iday.value=="") return
+function validateDay(e){
+	if (iday.value==="") return
 	if (+imonth.value >= +today.getMonth()+1 && +iyear.value >= +today.getFullYear()){
 		if (+iday.value > +today.getDate()){
 			iday.value=today.getDate()
@@ -166,7 +166,7 @@ const validateDay = function(e){
 	}
 }
 
-iyear.setAttribute("oninput","validateYear(event)")
-imonth.setAttribute("oninput","validateMonth(event)")
-iday.setAttribute("oninput","validateDay(event)")
+iyear.oninput = validateYear
+imonth.oninput = validateMonth
+iday.oninput = validateDay
 

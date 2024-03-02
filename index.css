@@ -100,6 +100,11 @@ body {
   font-style: italic;
 }
 
+.output>p{
+	font-size: xx-large;
+	font-weight: 800;
+}
+
 .output-number {
   color: hsl(259, 100%, 65%);
 }
@@ -129,4 +134,3 @@ body {
   visibility: visible;
 }
 
-/*# sourceMappingURL=index.css.map */
